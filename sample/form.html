@@ -1,0 +1,27 @@
+<style type="text/css">
+	div{
+
+	}
+	div input{
+		display: block;
+		margin: 10px;
+	}
+</style>
+<div>
+	<lable>Required</lable><input type="text" required />
+
+	<lable>Email</lable><input type="email" value="some@email.com" />
+
+	<lable>Date</lable><input type="date" min="2010-08-14" max="2011-08-14" value="2010-08-14"/>
+
+	<lable>Range</lable><input type="range" min="0" max="50" value="10" />
+
+	<lable>Search</lable><input type="search" results="10" placeholder="Search..." />
+
+	<lable>Tel</lable><input type="tel"  placeholder="(555) 555-5555"
+	         pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" />
+
+	<lable>Color</lable><input type="color" placeholder="e.g. #bbbbbb" />
+
+	<lable>Number</lable><input type="number" step="1" min="-5" max="10" value="0" />
+</div>
