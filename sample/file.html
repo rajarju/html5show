@@ -10,24 +10,25 @@ and open the template in the editor.
 
   </head>
   <body>
-    <form>
-      <input type="file" name="toupload"  id="toupload"/>   
-    </form>
+    
+      <input type="file" name="toupload[]"  id="toupload" multiple/>  
+      <input id="go" type="submit" value="go" /> 
+    
     <script>
-      document.getElementById('toupload').onchange = function(){
-        console.log(this.files);
+      document.getElementById('go').onclick = function(){
+        var files = document.getElementById('toupload');
+        console.log(files.files);
         
         var xhr = new XMLHttpRequest();
         xhr.upload.addEventListener('progress',function(ev){
-          console.log((ev.loaded/ev.total)+'%');
+          console.log((ev.loaded/ev.total)*100+'%');
         }, false);
         
         xhr.onreadystatechange = function(ev){
           // Blah blah blah, you know how to make AJAX requests
           console.log(ev);
         };
-        xhr.open('POST', '', true);
-        var files = document.getElementById('toupload').files;
+        xhr.open('POST', '', true);       
         var data = new FormData();
         for(var i = 0; i < files.length; i++) data.append('file'+i, files[i]);
         xhr.send(data);        

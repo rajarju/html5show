@@ -8,20 +8,37 @@
 	}
 </style>
 <div>
-	<lable>Required</lable><input type="text" required />
+	<form>
+		<lable>Required</lable><input type="text" required />
 
-	<lable>Email</lable><input type="email" value="some@email.com" />
+		<lable>Email</lable><input type="email" placeholder="some@email.com" required/>
+		
+		<lable>Email</lable><input type="website" placeholder="www.google.com" required  pattern="https?://.+" />
 
-	<lable>Date</lable><input type="date" min="2010-08-14" max="2011-08-14" value="2010-08-14"/>
+		<lable>Date</lable><input type="date" min="2010-08-14" max="2011-08-14" value="2010-08-14"/>
 
-	<lable>Range</lable><input type="range" min="0" max="50" value="10" />
+		<lable>Range</lable><input type="range" min="0" max="50" value="10" />
 
-	<lable>Search</lable><input type="search" results="10" placeholder="Search..." />
+		<lable>Search</lable><input type="search" results="10" placeholder="Search..." />
 
-	<lable>Tel</lable><input type="tel"  placeholder="(555) 555-5555"
-	         pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" />
+		<lable>Tel</lable><input type="tel"  placeholder="(555) 555-5555"
+		         pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" />
 
-	<lable>Color</lable><input type="color" placeholder="e.g. #bbbbbb" />
+		<lable>Color</lable><input type="color" placeholder="e.g. #bbbbbb" />
 
-	<lable>Number</lable><input type="number" step="1" min="-5" max="10" value="0" />
+		<lable>Number</lable><input type="number" step="1" min="-5" max="10" value="0" />
+
+		<lable>Cars</lable><input list="cars"/>
+		<datalist id="cars">
+		  <option value="BMW"/>
+		  <option value="Ford"/>
+		  <option value="Volvo"/>
+		</datalist>
+
+		<input type="submit" value="Go" />
+	</form>
+
+
+		<meter min="0" max="100" low="40" high="90" optimum="100" value="91">A+</meter>
+		<progress value="75" max="100">3/4 complete</progress>
 </div>
