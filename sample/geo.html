@@ -1,0 +1,14 @@
+<script type="text/javascript">
+function initiate_geolocation() {  
+    navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+}  
+  
+function handle_geolocation_query(position){  
+	console.log(position);
+    alert('Lat: ' + position.coords.latitude + ' ' +  
+          'Lon: ' + position.coords.longitude);  
+}  
+window.onload = function(){
+	initiate_geolocation();
+}
+</script>
