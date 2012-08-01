@@ -1,0 +1,55 @@
+<style type="text/css">
+#log{
+	height: 500px;
+	width: 600px;
+	background: black;
+	color: #fff;
+}
+</style>
+
+<script type="text/javascript">
+	url = 'wss://echo.websocket.org';
+
+	window.onload = function(){				
+		//Opening Websocket Connection
+		websocket = new WebSocket(url); 
+
+		websocket.onopen = function(evt) {
+			log("CONNECTED");
+		}; 
+		
+		websocket.onclose = function(evt) {
+			log("CLOSED");
+		}; 
+		
+		websocket.onmessage = function(evt) {
+			log("REPLY: " + evt.data);
+			console.log(evt);
+		}; 
+		
+		websocket.onerror = function(evt) {
+			log("ERROR");
+			console.log(evt, 'error');
+		};		
+	}
+
+	function send(){
+		var data = document.getElementById('message').value;
+		websocket.send(data);
+		log("SENT: " + data);
+	}
+
+	function log(data){
+		var msg = document.createElement("P");
+		msg.innerHTML = data;
+		document.getElementById('log').appendChild(msg);
+	}
+</script>
+
+<div id="log">
+</div>
+
+<div id="actions">
+	<textarea id="message"></textarea>
+	<button id="send" onclick="send()">Send</button>
+</div>
